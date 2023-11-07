@@ -1,0 +1,189 @@
+@import "../../app.scss";
+
+.navbar {
+  width: 100%;
+  height: 10%;
+  color: white;
+  font-size: 14px;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  background: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.3) 50%);
+  transition: background-color 0.3s; // Smooth background color transition
+  will-change: transform; // Apply hardware acceleration
+
+  &.scrolled {
+    background-color: var(--main-color);
+  }
+
+  .container {
+    padding: 0px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    font-size: 25px;
+    font-weight: bolder;
+    margin-top: 3px;
+
+    .left {
+      display: flex;
+      align-items: center;
+
+      img { //logo
+        height: 20px;
+        margin-right: 30px;
+        transition: opacity 0.3s; // Fade-in animation
+        will-change: opacity; // Apply hardware acceleration
+
+        @include mobile {
+          display: block;
+          margin-left: -30px;
+          justify-self: center;
+        }
+
+        &:hover {
+          opacity: 0.7; // Adjust the opacity on hover
+        }
+      }
+
+      span {
+        margin-right: 20px;
+        cursor: pointer;
+        transition: font-size 0.3s; // Smooth font-size transition
+        will-change: font-size; // Apply hardware acceleration
+
+        @include tablet {
+          display: none;
+          font-size: 18px;
+        }
+
+        @include mobile {
+          font-size: 18px; // Adjust font size for mobile
+        }
+
+        &.navbarmainLinks {
+          @include tablet {
+            display: flex;
+          }
+        }
+
+        &:hover {
+          font-size: 20px; // Adjust the font-size on hover
+        }
+      }
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+
+      .icon, .search, .Tel {
+        display: flex;
+        margin: 0px 10px;
+        cursor: pointer;
+        height: 35px;
+        width: 35px;
+        color: white;
+        transition: opacity 0.3s; // Smooth opacity transition
+        will-change: opacity; // Apply hardware acceleration
+
+        &.search {
+          margin-left: 80px;
+        }
+
+        @include mobile {
+          font-size: 16px; // Adjust font size for mobile
+        }
+
+        &:hover {
+          opacity: 0.7; // Adjust the opacity on hover
+        }
+      }
+
+      img { //person
+        width: 40px;
+        height: 40px;
+        border-radius: 5px;
+        object-fit: cover;
+        cursor: pointer;
+        transition: transform 0.3s; // Apply a smooth transform transition
+        will-change: transform; // Apply hardware acceleration
+
+        &:hover {
+          transform: scale(1.1); // Slight scale-up on hover
+        }
+      }
+
+      .profile {  //setting
+        .options {
+          display: none;
+          background-color: var(--main-color);
+          border-radius: 5px;
+          will-change: transform; // Apply hardware acceleration
+        }
+
+        span {
+          padding: 10px;
+          cursor: pointer;
+          transition: background-color 0.3s; // Transition for background color
+          will-change: background-color; // Apply hardware acceleration
+
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.2); // Adjust the background color on hover
+          }
+        }
+      }
+    }
+  }
+}
+
+@include tablet {
+  .navbar {
+    .container {
+      .left img {
+        height: 30px; // Adjust height for tablet
+        transition: opacity 0.3s; // Add fade-in animation
+        will-change: opacity; // Apply hardware acceleration
+      }
+
+      .right .icon, .right .search, .right .Tel {
+        height: 35px; // Adjust height for tablet
+        width: 35px;
+        transition: opacity 0.3s; // Smooth opacity transition
+        will-change: opacity; // Apply hardware acceleration
+      }
+    }
+  }
+}
+
+@include mobile {
+  .navbar {
+    .container {
+      .left img {
+        height: 25px; // Adjust height for mobile
+        transition: opacity 0.3s; // Add fade-in animation
+        will-change: opacity; // Apply hardware acceleration
+      }
+
+      .right .icon, .right .search, .right .Tel {
+        height: 25px; // Adjust height for mobile
+        width: 25px;
+        transition: opacity 0.3s; // Smooth opacity transition
+        will-change: opacity; // Apply hardware acceleration
+      }
+
+     
+
+      .right {
+        .icon,  .Tel {
+          margin: 0px 10px;
+        }
+
+        .search{
+          margin-left:10px ;
+        }
+      }
+    }
+  }
+}
